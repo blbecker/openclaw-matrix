@@ -1,3 +1,5 @@
+# Invalid workflow file: .github/workflows/build-and-push.yml#L1 (Line: 58, Col: 1): 'name' is already defined, (Line: 60, Col: 1): 'on' is already defined, (Line: 71, Col: 1): 'env' is already defined, (Line: 76, Col: 1): 'jobs' is already defined AI!
+
 name: Build and Push Docker Image
 
 on:
