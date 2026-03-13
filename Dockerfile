@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     software-properties-common \
     git \
+    jq \
     && rm -rf /var/lib/apt/lists/*
 
 # Install GitHub CLI (gh)
