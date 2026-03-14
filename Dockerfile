@@ -1,4 +1,4 @@
-ARG BASE_IMAGE_TAG=latest
+ARG BASE_IMAGE_TAG=latest@sha256:c871ddf7ad1b4125218e5f010b59724f0d2bb299714c5bd6ba7c1e99462450a7
 FROM ghcr.io/openclaw/openclaw:${BASE_IMAGE_TAG}
 
 USER root
