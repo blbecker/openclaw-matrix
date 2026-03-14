@@ -1,6 +1,6 @@
 # Openclaw Matrix
 
-![Build](https://github.com/github/docs/actions/workflows/build-and-push.yml/badge.svg?branch=main)
+[![Build and Push Docker Image](https://github.com/blbecker/openclaw-matrix/actions/workflows/build-and-push.yml/badge.svg)](https://github.com/blbecker/openclaw-matrix/actions/workflows/build-and-push.yml)
 
 This started as a container with the matrix dependencies pre-installed. It ended up being a convenient way to pre-install dependencies, so now it's my base openclaw image.
 
