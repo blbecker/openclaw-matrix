@@ -42,6 +42,28 @@ jobs:
         id: version_step # step id used as a reference for output values
         uses: gittools/actions/gitversion/execute@v4.3.3
 
+      - name: Create semver tags
+        run: |
+          VERSION="${{ steps.version_step.outputs.semVer }}"
+
+          MAJOR=$(echo "$VERSION" | cut -d. -f1)
+          MINOR=$(echo "$VERSION" | cut -d. -f2)
+
+          TAG_MAJOR="$MAJOR"
+          TAG_MINOR="$MAJOR.$MINOR"
+          TAG_PATCH="$VERSION"
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git tag -f "$TAG_MAJOR"
+          git tag -f "$TAG_MINOR"
+          git tag -f "$TAG_PATCH"
+
+          git push origin "$TAG_PATCH"
+          git push origin "$TAG_MAJOR" --force
+          git push origin "$TAG_MINOR" --force
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
