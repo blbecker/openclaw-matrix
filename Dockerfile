@@ -1,5 +1,5 @@
-ARG IMAGE_TAG=latest
-FROM ghcr.io/openclaw/openclaw:${IMAGE_TAG}
+ARG BASE_IMAGE_TAG=latest
+FROM ghcr.io/openclaw/openclaw:${BASE_IMAGE_TAG}
 
 USER root
 
