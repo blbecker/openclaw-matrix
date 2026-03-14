@@ -47,7 +47,7 @@ jobs:
         run: |
 
           TAG_MAJOR="${{ steps.version_step.outputs.major }}"
-          TAG_MINOR="${{ steps.version_step.outputs.majorMinor }}"
+          TAG_MINOR="${TAG_MAJOR}.${{ steps.version_step.outputs.minor }}"
           TAG_PATCH="${{ steps.version_step.outputs.semVer }}"
 
 
