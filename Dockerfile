@@ -1,4 +1,4 @@
-ARG IMAGE_TAG=2026.3.8
+ARG IMAGE_TAG=latest
 FROM ghcr.io/openclaw/openclaw:${IMAGE_TAG}
 
 USER root
