@@ -46,7 +46,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=semver,pattern=${{ steps.version.outputs.version }}
+            type=semver,pattern=${{ steps.version.outputs.version-with-prefix }}
             type=sha,prefix=
 
       - name: Build and push
