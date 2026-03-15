@@ -21,7 +21,6 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg -o 
 
 # Install ntfy
 RUN curl -L -o /etc/apt/keyrings/ntfy.gpg https://archive.ntfy.sh/apt/keyring.gpg && \
-    apt install apt-transport-https && \
     echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/ntfy.gpg] https://archive.ntfy.sh/apt stable main" \
         > /etc/apt/sources.list.d/ntfy.list && \
     apt update && \
@@ -45,10 +44,14 @@ RUN npm i -g @steipete/summarize
 USER node
 RUN go install github.com/steipete/gogcli/cmd/gog@latest 
 
-# Install remaining Node dependencies (original step)
+# Install remaining Node dependencies 
 USER root
 RUN cd /app && \
     pnpm add @vector-im/matrix-bot-sdk @matrix-org/matrix-sdk-crypto-nodejs
+
+# Install pip and python packages
+RUN apt install -y python3-pip && \
+    pip install agentmail python-dotenv --break-system-packages
 
 USER node
 
