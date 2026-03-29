@@ -18,7 +18,7 @@ concurrency:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BASE_IMAGE_TAG: ${{ github.event.inputs.image_tag || '2026.3.12' }}
+  BASE_IMAGE_TAG: ${{ github.event.inputs.image_tag || '2026.3.28' }}
 
 jobs:
   build:
