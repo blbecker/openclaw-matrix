@@ -50,8 +50,8 @@ RUN cd /app && \
     pnpm add @vector-im/matrix-bot-sdk @matrix-org/matrix-sdk-crypto-nodejs
 
 # Install pip and python packages
-RUN apt install -y python3-pip && \
-    pip install agentmail python-dotenv --break-system-packages
+RUN apt install -y python3-pip python-is-python3 && \
+    pip install agentmail python-dotenv requests --break-system-packages
 
 USER node
 
