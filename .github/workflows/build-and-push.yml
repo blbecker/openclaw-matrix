@@ -18,7 +18,6 @@ concurrency:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BASE_IMAGE_TAG: ${{ github.event.inputs.image_tag || '2026.3.28' }}
 
 jobs:
   build:
@@ -42,23 +41,6 @@ jobs:
       - name: Determine Version
         id: version_step # step id used as a reference for output values
         uses: gittools/actions/gitversion/execute@e0d584e657c606912e8fd522aeed29025975705f # v4.4.2
-
-      - name: Create semver tags
-        run: |
-
-          TAG_MAJOR="${{ steps.version_step.outputs.major }}"
-          TAG_MINOR="${TAG_MAJOR}.${{ steps.version_step.outputs.minor }}"
-          TAG_PATCH="${{ steps.version_step.outputs.semVer }}"
-
-
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          git tag -f "$TAG_MAJOR"
-          git tag -f "$TAG_MINOR"
-          git tag -f "$TAG_PATCH"
-
-          git push origin "$TAG_PATCH" "$TAG_MAJOR" "$TAG_MINOR" --force
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # v4
@@ -86,5 +68,20 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            BASE_IMAGE_TAG=${{ env.BASE_IMAGE_TAG }}
+
+      - name: Create semver tags
+        run: |
+
+          TAG_MAJOR="${{ steps.version_step.outputs.major }}"
+          TAG_MINOR="${TAG_MAJOR}.${{ steps.version_step.outputs.minor }}"
+          TAG_PATCH="${{ steps.version_step.outputs.semVer }}"
+
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git tag -f "$TAG_MAJOR"
+          git tag -f "$TAG_MINOR"
+          git tag -f "$TAG_PATCH"
+
+          git push origin "$TAG_PATCH" "$TAG_MAJOR" "$TAG_MINOR" --force
