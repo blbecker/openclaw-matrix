@@ -27,7 +27,7 @@ RUN curl -L -o /etc/apt/keyrings/ntfy.gpg https://archive.ntfy.sh/apt/keyring.gp
     apt install ntfy
 
 # Install Go (required for gog and summarize)
-ENV GO_VERSION=1.23.2
+ENV GO_VERSION=1.26.1
 RUN curl -fsSL https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz -o /tmp/go.tar.gz \
     && tar -C /usr/local -xzf /tmp/go.tar.gz \
     && rm /tmp/go.tar.gz
