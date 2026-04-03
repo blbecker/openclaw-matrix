@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     git \
     jq \
     apt-transport-https \
+    vim \
     && rm -rf /var/lib/apt/lists/*
 
 # Install GitHub CLI (gh)
