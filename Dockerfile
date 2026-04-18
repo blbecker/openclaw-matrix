@@ -47,8 +47,8 @@ RUN go install github.com/steipete/gogcli/cmd/gog@latest
 
 # Install remaining Node dependencies 
 USER root
-RUN cd /app && \
-    pnpm add @vector-im/matrix-bot-sdk @matrix-org/matrix-sdk-crypto-nodejs
+# RUN cd /app && \
+#     pnpm add @vector-im/matrix-bot-sdk @matrix-org/matrix-sdk-crypto-nodejs
 
 # Install pip and python packages
 RUN apt install -y python3-pip python-is-python3 && \
