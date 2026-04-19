@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     jq \
     apt-transport-https \
     vim \
+    netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
 # Install GitHub CLI (gh)
