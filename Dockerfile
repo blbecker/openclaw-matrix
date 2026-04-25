@@ -56,4 +56,4 @@ RUN apt install -y python3-pip python-is-python3 && \
     pip install agentmail python-dotenv requests --break-system-packages
 
 USER node
-
+RUN openclaw doctor --fix

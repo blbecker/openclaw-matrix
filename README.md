@@ -6,10 +6,13 @@ This started as a container with the matrix dependencies pre-installed. It ended
 
 ## Building locally
 
-Build from latest
+Build and run from latest
 
 ```bash
-docker build .
+export docker_tag="openclaw-matrix:local-$(git rev-parse --short HEAD)"
+docker build . -t "${docker_tag}"
+docker run -it -v "$(pwd):/build" "${docker_tag}" bash
+
 ```
 
 Build from a specific version
