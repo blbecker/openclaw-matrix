@@ -1,4 +1,4 @@
-ARG BASE_IMAGE_TAG=2026.4.23-beta.2@sha256:ae72b45b5d98121412f97be28a54c48a9e2468f27d57037e74a016c4696a3ad8
+ARG BASE_IMAGE_TAG=2026.5.22
 FROM ghcr.io/openclaw/openclaw:${BASE_IMAGE_TAG}
 
 USER root
@@ -56,4 +56,3 @@ RUN apt install -y python3-pip python-is-python3 && \
     pip install agentmail python-dotenv requests --break-system-packages
 
 USER node
-RUN openclaw doctor --fix
