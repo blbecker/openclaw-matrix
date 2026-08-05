@@ -1,4 +1,4 @@
-ARG BASE_IMAGE_TAG=2026.7.1 
+ARG BASE_IMAGE_TAG=2026.7.2-beta.7
 FROM ghcr.io/openclaw/openclaw:${BASE_IMAGE_TAG}
 
 USER root
